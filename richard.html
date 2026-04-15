@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=yes">
+  <meta name="description" content="Richard Tech Solutions - AI, ML, Full-Stack Development & ICT Training. Portfolio: Car booking, Hotel booking, Agri-finance, E-commerce, Visa booking, E-learning, Traffic light simulation, Election ML, Fingerprint system.">
+  <meta name="theme-color" content="#1E3A8A">
+  <title>Richard Tech | AI & Full-Stack Expert - Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            techblue: '#1E3A8A',
+            techaccent: '#3B82F6',
+            darkbg: '#0F172A',
+            darkcard: '#1E293B',
+          },
+          fontFamily: { 'sans': ['Inter', 'system-ui', 'sans-serif'] },
+          animation: { 'fade-in': 'fadeIn 0.6s ease-out' },
+          keyframes: { fadeIn: { '0%': { opacity: '0' }, '100%': { opacity: '1' } } }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; overflow-x: hidden; }
+    .card-hover { transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1); }
+    .card-hover:hover { transform: translateY(-6px); box-shadow: 0 25px 30px -12px rgba(0,0,0,0.25); }
+    .skill-bar { transition: width 0.7s ease-in-out; }
+    .transition-theme { transition: background-color 0.3s, color 0.3s, border-color 0.3s; }
+    .lang-btn-active { background-color: #1E3A8A !important; color: white !important; }
+    .dark .lang-btn-active { background-color: #3B82F6 !important; }
+    @media (max-width: 640px) {
+      .project-grid { gap: 1rem; }
+      .card-padding { padding: 1rem; }
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-900 dark:bg-darkbg dark:text-gray-100 transition-theme">
+
+  <!-- TOP BAR: Dark Mode + Language (NO NAVIGATION LINKS) -->
+  <div class="sticky top-0 z-50 bg-white/95 dark:bg-darkbg/95 backdrop-blur-md shadow-md px-4 py-3 border-b dark:border-gray-800 flex justify-between items-center">
+    <div class="text-lg sm:text-xl font-bold bg-gradient-to-r from-techblue to-blue-500 bg-clip-text text-transparent">
+      Richard Tech
+    </div>
+    <div class="flex items-center gap-2">
+      <div class="flex bg-gray-100 dark:bg-gray-800 rounded-full p-1 gap-1">
+        <button id="langEn" class="lang-btn text-xs font-semibold px-2 sm:px-3 py-1.5 rounded-full transition-all">EN</button>
+        <button id="langFr" class="lang-btn text-xs font-semibold px-2 sm:px-3 py-1.5 rounded-full transition-all">FR</button>
+        <button id="langRw" class="lang-btn text-xs font-semibold px-2 sm:px-3 py-1.5 rounded-full transition-all">RW</button>
+      </div>
+      <button id="darkModeToggle" class="bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 p-2 rounded-full w-9 h-9 flex items-center justify-center transition-all">
+        <i id="darkIcon" class="fas fa-moon text-gray-700 dark:text-yellow-400"></i>
+      </button>
+    </div>
+  </div>
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
+
+    <!-- HERO SECTION -->
+    <section class="min-h-[70vh] flex flex-col justify-center items-center text-center py-10 md:py-16 animate-fade-in">
+      <div class="bg-white/80 dark:bg-darkcard/80 backdrop-blur-sm rounded-3xl p-6 md:p-10 shadow-2xl border border-blue-100 dark:border-gray-700 w-full">
+        <div class="inline-flex items-center justify-center w-20 h-20 md:w-24 md:h-24 bg-gradient-to-br from-techblue to-blue-500 rounded-full mb-5 shadow-lg">
+          <i class="fas fa-brain text-4xl md:text-5xl text-white"></i>
+        </div>
+        <h1 class="text-3xl md:text-5xl font-extrabold bg-gradient-to-r from-techblue to-blue-500 bg-clip-text text-transparent">Richard Tech Solutions</h1>
+        <p class="text-base md:text-xl text-gray-700 dark:text-gray-300 mt-3 font-medium max-w-2xl mx-auto" id="heroDesc">AI Engineer • Full-Stack Developer • ICT Trainer</p>
+        <div class="flex flex-wrap justify-center gap-3 mt-6">
+          <a href="#contact" class="bg-techblue hover:bg-blue-700 text-white font-semibold px-6 py-2.5 rounded-full shadow-lg transition-all flex items-center gap-2 text-sm md:text-base" id="hireBtn">📄 Hire Me</a>
+          <a href="#contact" class="border-2 border-techblue text-techblue dark:text-white dark:border-white hover:bg-techblue hover:text-white font-semibold px-6 py-2.5 rounded-full transition-all flex items-center gap-2 text-sm md:text-base" id="contactBtn">📞 Contact</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT ME SECTION -->
+    <section class="py-10 md:py-14">
+      <div class="bg-white dark:bg-darkcard rounded-2xl shadow-xl p-6 md:p-8 border border-gray-100 dark:border-gray-800">
+        <div class="flex flex-col md:flex-row gap-6 items-center">
+          <div class="flex-1 text-center md:text-left">
+            <h2 class="text-2xl md:text-3xl font-bold text-techblue dark:text-blue-400 mb-3"><i class="fas fa-user-astronaut mr-2"></i><span id="aboutTitle">About Me</span></h2>
+            <p class="text-gray-700 dark:text-gray-300 leading-relaxed text-sm md:text-base" id="aboutText">I'm Richard, a multidisciplinary software engineer & AI enthusiast specializing in Machine Learning, Full-stack development, and ICT training. With expertise in Python, C++, React, Node.js, and multiple databases (MongoDB, PostgreSQL, MySQL, Cassandra, R), I build intelligent systems from traffic light simulations to election prediction models and biometric authentication.</p>
+            <div class="mt-5 flex flex-wrap gap-2 justify-center md:justify-start">
+              <span class="bg-blue-50 dark:bg-blue-900/30 text-techblue dark:text-blue-300 px-3 py-1 rounded-full text-xs font-semibold"><i class="fab fa-python mr-1"></i> ML & AI</span>
+              <span class="bg-blue-50 dark:bg-blue-900/30 text-techblue dark:text-blue-300 px-3 py-1 rounded-full text-xs font-semibold"><i class="fas fa-code mr-1"></i> Full-Stack</span>
+              <span class="bg-blue-50 dark:bg-blue-900/30 text-techblue dark:text-blue-300 px-3 py-1 rounded-full text-xs font-semibold"><i class="fas fa-database mr-1"></i> Multi-DB Expert</span>
+            </div>
+          </div>
+          <div class="flex-1 flex justify-center">
+            <div class="w-32 h-32 md:w-44 md:h-44 bg-gradient-to-br from-techblue to-purple-500 rounded-2xl flex items-center justify-center shadow-2xl rotate-2">
+              <i class="fas fa-robot text-5xl md:text-6xl text-white"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MY LATEST PROJECTS SECTION (ALL REQUESTED PROJECTS) -->
+    <section class="py-10 md:py-14">
+      <div class="text-center mb-8">
+        <h2 class="text-2xl md:text-4xl font-bold text-techblue dark:text-blue-400"><i class="fas fa-code-branch mr-2"></i><span id="projectsTitle">My Latest Projects</span></h2>
+        <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mt-2 text-sm" id="projectsSub">Real-world systems • AI Models • Full-stack Applications</p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 project-grid">
+        
+        <!-- Car Booking System -->
+        <div class="bg-white dark:bg-darkcard rounded-xl shadow-md overflow-hidden card-hover">
+          <div class="h-36 bg-gradient-to-r from-blue-600 to-cyan-600 flex items-center justify-center"><i class="fas fa-car-side text-5xl text-white"></i></div>
+          <div class="p-4"><h3 class="font-bold text-lg">🚗 Car Booking System</h3><p class="text-gray-600 dark:text-gray-400 text-xs mt-1">Full-stack rental platform with real-time availability, payment integration, and admin dashboard.</p><div class="flex flex-wrap gap-1 mt-2"><span class="text-xs bg-blue-100 dark:bg-blue-900 px-2 py-0.5 rounded-full">React</span><span class="text-xs bg-blue-100 dark:bg-blue-900 px-2 py-0.5 rounded-full">Node.js</span><span class="text-xs bg-blue-100 dark:bg-blue-900 px-2 py-0.5 rounded-full">MongoDB</span></div></div>
+        </div>
+        
+        <!-- Hotel Booking System -->
+        <div class="bg-white dark:bg-darkcard rounded-xl shadow-md overflow-hidden card-hover">
+          <div class="h-36 bg-gradient-to-r from-amber-600 to-orange-600 flex items-center justify-center"><i class="fas fa-hotel text-5xl text-white"></i></div>
+          <div class="p-4"><h3 class="font-bold text-lg">🏨 Hotel Booking System</h3><p class="text-gray-600 dark:text-gray-400 text-xs mt-1">Room reservation, dynamic pricing, customer reviews, and payment gateway. PostgreSQL, Express, React.</p><div class="flex flex-wrap gap-1 mt-2"><span class="text-xs bg-blue-100 dark:bg-blue-900 px-2 py-0.5 rounded-full">React</span><span class="text-xs bg-blue-100 dark:bg-blue-900 px-2 py-0.5 rounded-full">PostgreSQL</span><span class="text-xs bg-blue-100 dark:bg-blue-900 px-2 py-0.5 rounded-full">Stripe</span></div></div>
+        </div>
+        
+        <!-- Agri-Finance & Delivery -->
+        <div class="bg-white dark:bg-darkcard rounded-xl shadow-md overflow-hidden card-hover">
+          <div class="h-36 bg-gradient-to-r from-green-600 to-emerald-600 flex items-center justify-center"><i class="fas fa-tractor text-5xl text-white"></i></div>
+          <div class="p-4"><h3 class="font-bold text-lg">🌾 Agri-Finance & Delivery</h3><p class="text-gray-600 dark:text-gray-400 text-xs mt-1">Platform connecting farmers to micro-loans, crop delivery logistics, and real-time market prices.</p><div class="flex flex-wrap gap-1 mt-2"><span class="text-xs bg-blue-100 dark:bg-blue-900 px-2 py-0.5 rounded-full">Python</span><span class="text-xs bg-blue-100 dark:bg-blue-900 px-2 py-0.5 rounded-full">Django</span><span class="text-xs bg-blue-100 dark:bg-blue-900 px-2 py-0.5 rounded-full">MySQL</span></div></div>
+        </div>
+        
+        <!-- E-commerce Website -->
+        <div class="bg-white dark:bg-darkcard rounded-xl shadow-md overflow-hidden card-hover">
+          <div class="h-36 bg-gradient-to-r from-purple-600 to-pink-600 flex items-center justify-center"><i class="fas fa-shopping-cart text-5xl text-white"></i></div>
+          <div class="p-4"><h3 class="font-bold text-lg">🛒 E-commerce Platform</h3><p class="text-gray-600 dark:text-gray-400 text-xs mt-1">Full-featured online store with cart, wishlist, order tracking, admin panel, and payment integration.</p><div class="flex flex-wrap gap-1 mt-2"><span class="text-xs bg-blue-100 dark:bg-blue-900 px-2 py-0.5 rounded-full">Laravel</span><span class="text-xs bg-blue-100 dark:bg-blue-900 px-2 py-0.5 rounded-full">MySQL</span><span class="text-xs bg-blue-100 dark:bg-blue-900 px-2 py-0.5 rounded-full">Tailwind</span></div></div>
+        </div>
+        
+        <!-- Vise Rwanda Booking System -->
+        <div class="bg-white dark:bg-darkcard rounded-xl shadow-md overflow-hidden card-hover">
+          <div class="h-36 bg-gradient-to-r from-red-600 to-rose-600 flex items-center justify-center"><i class="fas fa-passport text-5xl text-white"></i></div>
+          <div class="p-4"><h3 class="font-bold text-lg">🛂 Vise Rwanda Booking</h3><p class="text-gray-600 dark:text-gray-400 text-xs mt-1">Visa application & appointment scheduling system with document upload, tracking, and admin verification.</p><div class="flex flex-wrap gap-1 mt-2"><span class="text-xs bg-blue-100 dark:bg-blue-900 px-2 py-0.5 rounded-full">Node.js</span><span class="text-xs bg-blue-100 dark:bg-blue-900 px-2 py-0.5 rounded-full">MongoDB</span><span class="text-xs bg-blue-100 dark:bg-blue-900 px-2 py-0.5 rounded-full">JWT</span></div></div>
+        </div>
+        
+        <!-- Networking System -->
+        <div class="bg-white dark:bg-darkcard rounded-xl shadow-md overflow-hidden card-hover">
+          <div class="h-36 bg-gradient-to-r from-indigo-600 to-blue-800 flex items-center justify-center"><i class="fas fa-network-wired text-5xl text-white"></i></div>
+          <div class="p-4"><h3 class="font-bold text-lg">🌐 Network Monitoring System</h3><p class="text-gray-600 dark:text-gray-400 text-xs mt-1">Real-time network traffic analyzer, device discovery, bandwidth monitoring, and alert system.</p><div class="flex flex-wrap gap-1 mt-2"><span class="text-xs bg-blue-100 dark:bg-blue-900 px-2 py-0.5 rounded-full">Python</span><span class="text-xs bg-blue-100 dark:bg-blue-900 px-2 py-0.5 rounded-full">SNMP</span><span class="text-xs bg-blue-100 dark:bg-blue-900 px-2 py-0.5 rounded-full">Grafana</span></div></div>
+        </div>
+        
+        <!-- E-Learning Platform -->
+        <div class="bg-white dark:bg-darkcard rounded-xl shadow-md overflow-hidden card-hover">
+          <div class="h-36 bg-gradient-to-r from-teal-600 to-cyan-600 flex items-center justify-center"><i class="fas fa-chalkboard-user text-5xl text-white"></i></div>
+          <div class="p-4"><h3 class="font-bold text-lg">📚 E-Learning Platform</h3><p class="text-gray-600 dark:text-gray-400 text-xs mt-1">Interactive courses, video lessons, quizzes, certificates, student progress tracking, and live sessions.</p><div class="flex flex-wrap gap-1 mt-2"><span class="text-xs bg-blue-100 dark:bg-blue-900 px-2 py-0.5 rounded-full">React</span><span class="text-xs bg-blue-100 dark:bg-blue-900 px-2 py-0.5 rounded-full">Node.js</span><span class="text-xs bg-blue-100 dark:bg-blue-900 px-2 py-0.5 rounded-full">PostgreSQL</span></div></div>
+        </div>
+        
+        <!-- Traffic Light on Computer System (Simulation) -->
+        <div class="bg-white dark:bg-darkcard rounded-xl shadow-md overflow-hidden card-hover">
+          <div class="h-36 bg-gradient-to-r from-yellow-500 to-red-600 flex items-center justify-center"><i class="fas fa-traffic-light text-5xl text-white"></i></div>
+          <div class="p-4"><h3 class="font-bold text-lg">🚦 Traffic Light Simulation</h3><p class="text-gray-600 dark:text-gray-400 text-xs mt-1">Embedded-style simulation using Python & Tkinter. Realistic traffic control logic with pedestrian crossing and emergency override.</p><div class="flex flex-wrap gap-1 mt-2"><span class="text-xs bg-blue-100 dark:bg-blue-900 px-2 py-0.5 rounded-full">Python</span><span class="text-xs bg-blue-100 dark:bg-blue-900 px-2 py-0.5 rounded-full">Tkinter</span><span class="text-xs bg-blue-100 dark:bg-blue-900 px-2 py-0.5 rounded-full">OOP</span></div></div>
+        </div>
+        
+        <!-- Election System ML Model -->
+        <div class="bg-white dark:bg-darkcard rounded-xl shadow-md overflow-hidden card-hover">
+          <div class="h-36 bg-gradient-to-r from-slate-700 to-gray-800 flex items-center justify-center"><i class="fas fa-vote-yea text-5xl text-white"></i></div>
+          <div class="p-4"><h3 class="font-bold text-lg">🗳️ Election Prediction ML</h3><p class="text-gray-600 dark:text-gray-400 text-xs mt-1">Machine learning model to predict election outcomes based on historical data, sentiment analysis, and demographic factors. Scikit-learn, XGBoost.</p><div class="flex flex-wrap gap-1 mt-2"><span class="text-xs bg-blue-100 dark:bg-blue-900 px-2 py-0.5 rounded-full">Python</span><span class="text-xs bg-blue-100 dark:bg-blue-900 px-2 py-0.5 rounded-full">Scikit-learn</span><span class="text-xs bg-blue-100 dark:bg-blue-900 px-2 py-0.5 rounded-full">Pandas</span></div></div>
+        </div>
+        
+        <!-- Fingerprint Recognition System -->
+        <div class="bg-white dark:bg-darkcard rounded-xl shadow-md overflow-hidden card-hover">
+          <div class="h-36 bg-gradient-to-r from-fuchsia-600 to-purple-700 flex items-center justify-center"><i class="fas fa-fingerprint text-5xl text-white"></i></div>
+          <div class="p-4"><h3 class="font-bold text-lg">🔍 Fingerprint Recognition</h3><p class="text-gray-600 dark:text-gray-400 text-xs mt-1">Biometric authentication system using minutiae extraction and matching algorithms. High-accuracy identification.</p><div class="flex flex-wrap gap-1 mt-2"><span class="text-xs bg-blue-100 dark:bg-blue-900 px-2 py-0.5 rounded-full">Python</span><span class="text-xs bg-blue-100 dark:bg-blue-900 px-2 py-0.5 rounded-full">OpenCV</span><span class="text-xs bg-blue-100 dark:bg-blue-900 px-2 py-0.5 rounded-full">NumPy</span></div></div>
+        </div>
+
+        <!-- AI Traffic Optimization -->
+        <div class="bg-white dark:bg-darkcard rounded-xl shadow-md overflow-hidden card-hover">
+          <div class="h-36 bg-gradient-to-r from-blue-500 to-indigo-700 flex items-center justify-center"><i class="fas fa-microchip text-5xl text-white"></i></div>
+          <div class="p-4"><h3 class="font-bold text-lg">🧠 AI Traffic Optimization</h3><p class="text-gray-600 dark:text-gray-400 text-xs mt-1">Deep reinforcement learning model to optimize traffic flow at intersections reducing congestion by 35%.</p><div class="flex flex-wrap gap-1 mt-2"><span class="text-xs bg-blue-100 dark:bg-blue-900 px-2 py-0.5 rounded-full">TensorFlow</span><span class="text-xs bg-blue-100 dark:bg-blue-900 px-2 py-0.5 rounded-full">Reinforcement</span><span class="text-xs bg-blue-100 dark:bg-blue-900 px-2 py-0.5 rounded-full">Python</span></div></div>
+        </div>
+
+        <!-- Smart Agriculture IoT -->
+        <div class="bg-white dark:bg-darkcard rounded-xl shadow-md overflow-hidden card-hover">
+          <div class="h-36 bg-gradient-to-r from-lime-600 to-green-700 flex items-center justify-center"><i class="fas fa-leaf text-5xl text-white"></i></div>
+          <div class="p-4"><h3 class="font-bold text-lg">🌱 Smart Agriculture IoT</h3><p class="text-gray-600 dark:text-gray-400 text-xs mt-1">Sensor-based soil monitoring, automated irrigation, and crop health prediction using ML.</p><div class="flex flex-wrap gap-1 mt-2"><span class="text-xs bg-blue-100 dark:bg-blue-900 px-2 py-0.5 rounded-full">IoT</span><span class="text-xs bg-blue-100 dark:bg-blue-900 px-2 py-0.5 rounded-full">Raspberry Pi</span><span class="text-xs bg-blue-100 dark:bg-blue-900 px-2 py-0.5 rounded-full">Flask</span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS SECTION -->
+    <section class="py-10 md:py-14 bg-gray-100 dark:bg-darkbg/60 rounded-2xl p-5 md:p-8">
+      <div class="text-center mb-8">
+        <h2 class="text-2xl md:text-3xl font-bold text-techblue dark:text-blue-400"><i class="fas fa-chart-line mr-2"></i><span id="skillsTitle">Technical Arsenal</span></h2>
+        <p class="text-gray-600 dark:text-gray-400 text-sm">Machine Learning • Full-Stack • Databases • Systems</p>
+      </div>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="space-y-3">
+          <div><div class="flex justify-between text-sm"><span><i class="fab fa-python text-blue-500 mr-1"></i>Python / ML</span><span>92%</span></div><div class="w-full bg-gray-300 dark:bg-gray-700 rounded-full h-2"><div class="bg-techblue h-2 rounded-full w-[92%] skill-bar"></div></div></div>
+          <div><div class="flex justify-between text-sm"><span><i class="fab fa-react text-cyan-500 mr-1"></i>React / Next.js</span><span>88%</span></div><div class="w-full bg-gray-300 dark:bg-gray-700 rounded-full h-2"><div class="bg-techblue h-2 rounded-full w-[88%] skill-bar"></div></div></div>
+          <div><div class="flex justify-between text-sm"><span><i class="fab fa-node-js text-green-500 mr-1"></i>Node.js</span><span>86%</span></div><div class="w-full bg-gray-300 dark:bg-gray-700 rounded-full h-2"><div class="bg-techblue h-2 rounded-full w-[86%] skill-bar"></div></div></div>
+          <div><div class="flex justify-between text-sm"><span><i class="fas fa-database text-yellow-600 mr-1"></i>MongoDB</span><span>89%</span></div><div class="w-full bg-gray-300 dark:bg-gray-700 rounded-full h-2"><div class="bg-techblue h-2 rounded-full w-[89%] skill-bar"></div></div></div>
+          <div><div class="flex justify-between text-sm"><span><i class="fas fa-database text-blue-600 mr-1"></i>PostgreSQL / MySQL</span><span>87%</span></div><div class="w-full bg-gray-300 dark:bg-gray-700 rounded-full h-2"><div class="bg-techblue h-2 rounded-full w-[87%] skill-bar"></div></div></div>
+        </div>
+        <div class="space-y-3">
+          <div><div class="flex justify-between text-sm"><span><i class="fas fa-chart-simple text-purple-500 mr-1"></i>R / Data Science</span><span>80%</span></div><div class="w-full bg-gray-300 dark:bg-gray-700 rounded-full h-2"><div class="bg-techblue h-2 rounded-full w-[80%] skill-bar"></div></div></div>
+          <div><div class="flex justify-between text-sm"><span><i class="fas fa-code text-orange-600 mr-1"></i>C++</span><span>78%</span></div><div class="w-full bg-gray-300 dark:bg-gray-700 rounded-full h-2"><div class="bg-techblue h-2 rounded-full w-[78%] skill-bar"></div></div></div>
+          <div><div class="flex justify-between text-sm"><span><i class="fas fa-database text-green-700 mr-1"></i>Cassandra</span><span>75%</span></div><div class="w-full bg-gray-300 dark:bg-gray-700 rounded-full h-2"><div class="bg-techblue h-2 rounded-full w-[75%] skill-bar"></div></div></div>
+          <div><div class="flex justify-between text-sm"><span><i class="fas fa-cloud text-sky-500 mr-1"></i>Docker / K8s</span><span>82%</span></div><div class="w-full bg-gray-300 dark:bg-gray-700 rounded-full h-2"><div class="bg-techblue h-2 rounded-full w-[82%] skill-bar"></div></div></div>
+          <div><div class="flex justify-between text-sm"><span><i class="fas fa-brain text-indigo-500 mr-1"></i>MLOps / LLMs</span><span>76%</span></div><div class="w-full bg-gray-300 dark:bg-gray-700 rounded-full h-2"><div class="bg-techblue h-2 rounded-full w-[76%] skill-bar"></div></div></div>
+        </div>
+      </div>
+      <div class="flex flex-wrap justify-center gap-4 mt-8 text-center">
+        <div><i class="fab fa-python text-2xl text-blue-500"></i><p class="text-xs">Python</p></div><div><i class="fab fa-react text-2xl text-cyan-500"></i><p class="text-xs">React</p></div><div><i class="fas fa-database text-2xl text-green-600"></i><p class="text-xs">MongoDB</p></div><div><i class="fas fa-database text-2xl text-blue-700"></i><p class="text-xs">PostgreSQL</p></div><div><i class="fab fa-node-js text-2xl text-green-500"></i><p class="text-xs">Node.js</p></div><div><i class="fas fa-chart-line text-2xl text-purple-600"></i><p class="text-xs">R</p></div><div><i class="fas fa-code text-2xl text-orange-600"></i><p class="text-xs">C++</p></div><div><i class="fas fa-fingerprint text-2xl text-indigo-500"></i><p class="text-xs">Biometrics</p></div>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="py-10 md:py-14">
+      <div class="bg-white dark:bg-darkcard rounded-2xl shadow-xl overflow-hidden">
+        <div class="grid md:grid-cols-2">
+          <div class="bg-techblue p-6 md:p-8 text-white">
+            <h2 class="text-2xl font-bold mb-2"><i class="fas fa-headset mr-2"></i><span id="contactTitle">Get in Touch</span></h2>
+            <p class="mb-4 text-blue-100 text-sm" id="contactDesc">AI projects, development, training — let's collaborate.</p>
+            <div class="space-y-3">
+              <a href="https://wa.me/250795927287" target="_blank" class="flex items-center gap-3 text-sm hover:bg-blue-700 p-2 rounded-xl transition"><i class="fab fa-whatsapp text-xl"></i><span>+250 795 927 287 (WhatsApp)</span></a>
+              <a href="tel:+250795927287" class="flex items-center gap-3 text-sm hover:bg-blue-700 p-2 rounded-xl transition"><i class="fas fa-phone-alt text-xl"></i><span>Call: +250 795 927 287</span></a>
+              <a href="mailto:mushinzimanarichard@gmail.com" class="flex items-center gap-3 text-sm hover:bg-blue-700 p-2 rounded-xl transition"><i class="fas fa-envelope text-xl"></i><span>richard.ai@tech.com</span></a>
+            </div>
+          </div>
+          <div class="p-6 md:p-8 bg-gray-50 dark:bg-darkbg/40">
+            <form id="contactForm" class="space-y-3">
+              <input type="text" placeholder="Full Name" required class="w-full p-3 border border-gray-300 dark:border-gray-700 rounded-xl bg-white dark:bg-darkcard text-sm">
+              <input type="email" placeholder="Email Address" required class="w-full p-3 border border-gray-300 dark:border-gray-700 rounded-xl bg-white dark:bg-darkcard text-sm">
+              <textarea rows="3" placeholder="Tell me about your project (Car booking, Hotel, E-commerce, ML model, etc.)..." required class="w-full p-3 border border-gray-300 dark:border-gray-700 rounded-xl bg-white dark:bg-darkcard text-sm"></textarea>
+              <button type="submit" class="bg-techblue hover:bg-blue-700 text-white font-bold py-2.5 rounded-xl transition w-full"><i class="fas fa-paper-plane mr-2"></i> Send Message</button>
+              <p id="formFeedback" class="text-sm text-green-600 dark:text-green-400 text-center hidden"></p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HELP & SUPPORT SECTION -->
+    <section class="py-8">
+      <div class="bg-gradient-to-r from-gray-800 to-gray-900 rounded-2xl p-6 md:p-8 text-white">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+          <div><h3 class="text-xl font-bold"><i class="fas fa-life-ring mr-2"></i><span id="helpTitle">24/7 Professional Support</span></h3><p class="text-gray-300 text-sm mt-1" id="helpDesc">Urgent ICT/AI assistance? Dedicated helpdesk & remote troubleshooting.</p>
+            <div class="flex flex-wrap gap-2 mt-3"><a href="https://wa.me/250795927287" class="bg-green-600 hover:bg-green-700 text-xs px-3 py-1.5 rounded-full transition"><i class="fab fa-whatsapp mr-1"></i> Emergency WA</a><a href="tel:+250795927287" class="bg-blue-600 hover:bg-blue-700 text-xs px-3 py-1.5 rounded-full transition"><i class="fas fa-phone mr-1"></i> Hotline</a><a href="mailto:support@richtech.com" class="bg-gray-700 hover:bg-gray-600 text-xs px-3 py-1.5 rounded-full transition"><i class="fas fa-envelope mr-1"></i> Support Mail</a></div>
+          </div>
+          <div class="text-center bg-white/10 p-3 rounded-xl"><i class="fas fa-clock text-2xl text-blue-300 mb-1"></i><p class="font-semibold text-sm">Response within 2h</p><p class="text-xs text-gray-300">Mon-Sat: 8am-10pm</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-gray-900 text-white rounded-2xl mt-8 pt-6 pb-4 px-4">
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center text-sm">
+        <div><h4 class="font-bold mb-1">Richard Tech Solutions</h4><p class="text-gray-400 text-xs">AI Engineer • Full-Stack • ICT Trainer</p></div>
+        <div><h5 class="font-semibold text-sm">Tech Stack</h5><ul class="text-gray-400 text-xs space-y-0.5"><li>Python/ML/R/C++</li><li>React/Node.js/MongoDB/PostgreSQL</li><li>Cassandra/MySQL/Docker</li></ul></div>
+        <div><h5 class="font-semibold text-sm">Contact</h5><ul class="text-gray-400 text-xs space-y-0.5"><li><i class="fas fa-phone-alt mr-1"></i> +250 795 927 287</li><li><i class="fab fa-whatsapp mr-1"></i> 24/7 Chat</li><li>Kigali, Rwanda</li></ul></div>
+      </div>
+      <div class="border-t border-gray-800 mt-4 pt-3 text-center text-gray-500 text-xs">© 2026 Richard Tech Solutions — AI & Full-Stack Excellence | All Projects Portfolio</div>
+    </footer>
+  </main>
+
+  <script>
+    // Dark Mode
+    const darkToggle = document.getElementById('darkModeToggle');
+    const darkIcon = document.getElementById('darkIcon');
+    if (localStorage.getItem('darkMode') === 'enabled') { document.documentElement.classList.add('dark'); darkIcon.classList.replace('fa-moon', 'fa-sun'); }
+    darkToggle.addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark');
+      const isDark = document.documentElement.classList.contains('dark');
+      localStorage.setItem('darkMode', isDark ? 'enabled' : 'disabled');
+      darkIcon.classList.toggle('fa-moon', !isDark);
+      darkIcon.classList.toggle('fa-sun', isDark);
+    });
+
+    // Translations (EN, FR, RW)
+    const translations = {
+      en: { heroDesc: "AI Engineer • Full-Stack Developer • ICT Trainer", aboutTitle: "About Me", aboutText: "I'm Richard, a multidisciplinary software engineer & AI enthusiast specializing in Machine Learning, Full-stack development, and ICT training. With expertise in Python, C++, React, Node.js, and multiple databases (MongoDB, PostgreSQL, MySQL, Cassandra, R), I build intelligent systems from traffic light simulations to election prediction models and biometric authentication.", projectsTitle: "My Latest Projects", projectsSub: "Real-world systems • AI Models • Full-stack Applications", skillsTitle: "Technical Arsenal", contactTitle: "Get in Touch", contactDesc: "AI projects, development, training — let's collaborate.", helpTitle: "24/7 Professional Support", helpDesc: "Urgent ICT/AI assistance? Dedicated helpdesk & remote troubleshooting.", hireBtn: "📄 Hire Me", contactBtn: "📞 Contact" },
+      fr: { heroDesc: "Ingénieur IA • Développeur Full-Stack • Formateur TIC", aboutTitle: "À propos", aboutText: "Je suis Richard, ingénieur logiciel spécialisé en ML, full-stack et formation TIC. Expert Python, C++, React, Node.js, MongoDB, PostgreSQL, MySQL, Cassandra, R.", projectsTitle: "Mes Derniers Projets", projectsSub: "Systèmes réels • Modèles IA • Applications Full-Stack", skillsTitle: "Compétences", contactTitle: "Contactez-moi", contactDesc: "Projets IA, développement, formation.", helpTitle: "Support 24/7", helpDesc: "Assistance TIC/IA urgente.", hireBtn: "📄 Embauchez", contactBtn: "📞 Contact" },
+      rw: { heroDesc: "Injiniyeri ya AI • Full-Stack Developer • Umutoza wa ICT", aboutTitle: "Ibyanjye", aboutText: "Nitwa Richard, injeniyeri wa software n'umuhanga muri AI, ML, Full-stack n'amahugurwa ya ICT. Mfite ubuhanga muri Python, C++, React, Node.js, na databases (MongoDB, PostgreSQL, MySQL, Cassandra, R).", projectsTitle: "Imishinga Yanjye Iheruka", projectsSub: "Sisitemu nyazo • Moderi za AI • Porogaramu Full-Stack", skillsTitle: "Ubuhanga", contactTitle: "Twandikire", contactDesc: "Imishinga ya AI, iterambere, amahugurwa.", helpTitle: "Ubufasha 24/7", helpDesc: "Ubufasha bw'ihutirwa bwa ICT/AI.", hireBtn: "📄 Mpagaze", contactBtn: "📞 Twandikire" }
+    };
+    function setLanguage(lang) {
+      const t = translations[lang];
+      document.getElementById('heroDesc').innerText = t.heroDesc;
+      document.getElementById('aboutTitle').innerText = t.aboutTitle;
+      document.getElementById('aboutText').innerText = t.aboutText;
+      document.getElementById('projectsTitle').innerText = t.projectsTitle;
+      document.getElementById('projectsSub').innerText = t.projectsSub;
+      document.getElementById('skillsTitle').innerText = t.skillsTitle;
+      document.getElementById('contactTitle').innerText = t.contactTitle;
+      document.getElementById('contactDesc').innerText = t.contactDesc;
+      document.getElementById('helpTitle').innerText = t.helpTitle;
+      document.getElementById('helpDesc').innerText = t.helpDesc;
+      document.getElementById('hireBtn').innerHTML = t.hireBtn;
+      document.getElementById('contactBtn').innerHTML = t.contactBtn;
+      document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('lang-btn-active'));
+      if (lang === 'en') document.getElementById('langEn').classList.add('lang-btn-active');
+      if (lang === 'fr') document.getElementById('langFr').classList.add('lang-btn-active');
+      if (lang === 'rw') document.getElementById('langRw').classList.add('lang-btn-active');
+    }
+    document.getElementById('langEn').addEventListener('click', () => setLanguage('en'));
+    document.getElementById('langFr').addEventListener('click', () => setLanguage('fr'));
+    document.getElementById('langRw').addEventListener('click', () => setLanguage('rw'));
+    setLanguage('en');
+
+    // Contact Form
+    document.getElementById('contactForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const fb = document.getElementById('formFeedback');
+      fb.classList.remove('hidden');
+      fb.textContent = "✓ Thank you! Richard will respond within 2 hours.";
+      e.target.reset();
+      setTimeout(() => fb.classList.add('hidden'), 4000);
+    });
+  </script>
+</body>
+</html>
